@@ -5,7 +5,7 @@ download_GFW_data <- function(France_MPA_dissolved, GFW_registry, trawlers, inpu
   #Download fishing effort in French EEZ
   fishing_effort <- gfwr::get_raster(spatial_resolution = 'HIGH',
              temporal_resolution = 'DAILY',
-             group_by = 'MMSI',
+             group_by = 'VESSEL_ID',
              start_date = input_start_date,
              end_date = input_end_date,
              region = 5677,
