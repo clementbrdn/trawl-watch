@@ -1,5 +1,5 @@
 calculate_surface <- function(fishing_effort_clean, gear_widths){
-  library(gfwr)
+
   #Gear widths from 
   # #https://academic.oup.com/icesjms/article/73/suppl_1/i27/2573989
   # gear_widths <- get_benthis_parameters() 

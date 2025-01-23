@@ -1,5 +1,4 @@
 # Load plumber
-
 library(plumber)
 
 #* @apiTitle Daily Fishing Data Script
@@ -14,7 +13,6 @@ download_GFW_data_path <- "/app/R/download_GFW_data.R"
 # Source the R scripts
 source(calculate_surface_path)
 source(download_GFW_data_path)
-
 
 #* Run the script and return the daily trawled surface
 #* @get /run

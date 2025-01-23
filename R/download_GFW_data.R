@@ -1,5 +1,5 @@
 download_GFW_data <- function(France_MPA_dissolved, GFW_registry, trawlers, input_start_date, input_end_date){
-  library(gfwr)
+
  # Use dedicated GFW API key
   key <- gfw_auth()
   #Download fishing effort in French EEZ
