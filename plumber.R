@@ -68,10 +68,95 @@ function() {
   
   # Calculate the total trawled surface area
   total_surface <- round(sum(surface_data$swept_area_km2), 2)
+
+
+  # Define updated equivalences (areas in km²)
+  equivalences <- c(
+    "de Malte" = 316,
+    "d'Ibiza" = 571,
+    "de Tokyo" = 577,
+    "de Mumbai" = 603,
+    "de Djakarta" = 661,
+    "de Singapour" = 719,
+    "de Rio de Janeiro" = 1200,
+    "de Los Angeles" = 1299,
+    "de Johannesburg" = 1646,
+    "de La Réunion" = 2512,
+    "du Parc naturel régional des Caps et Marais d'Opale" = 4300,
+    "de Maine-et-Loire et de Mayenne" = 5175,
+    "de 10 fois le parc national des Calanques" = 5200,
+    "du Lot" = 5217,
+    "du Lot-et-Garonne" = 5361,
+    "du Vaucluse" = 5600,
+    "de Bali" = 5700,
+    "de la Vendée" = 6000,
+    "de Shanghai" = 6300,
+    "du Morbihan" = 6800,
+    "de 10 fois la ville de New York" = 7000,
+    "de Maine-et-Loire" = 7166,
+    "de Mayotte, La Réunion, Martinique et Guadeloupe" = 7800,
+    "des Îles Galápagos" = 8000,
+    "de la Corse" = 8680,
+    "du Parc de Yellowstone" = 8900,
+    "de Chypre" = 9250,
+    "de Maine-et-Loire et du Rhône" = 10300,
+    "du Liban" = 10400,
+    "du Lot-et-Garonne et du Lot" = 10500,
+    "de la Gironde" = 10700,
+    "de l'Île-de-France" = 12000,
+    "de 50 fois Marseille" = 12030,
+    "du Vanuatu" = 12100,
+    "du Nord et des Pyrénées-Atlantiques" = 13300,
+    "du Parc national du Serengeti" = 14700,
+    "du Parc National du Serengeti (Tanzanie)" = 14763,
+    "de 50 fois la ville de Dunkerque" = 14995,
+    "de 10 fois la ville de Londres" = 15000,
+    "des Landes et des Pyrénées-Atlantiques" = 16888,
+    "des Îles Fidji" = 18270,
+    "de la Charente-Maritime, de la Vienne et des Deux-Sèvres" = 19864,
+    "de la Corse et de l'Île-de-France" = 20000,
+    "de la Vendée, de la Loire-Atlantique et de Maine-et-Loire" = 20700,
+    "du Salvador" = 21041,
+    "de la Vendée, de la Loire-Atlantique, de Maine-et-Loire et de l'Essonne" = 22500,
+    "de la Vendée, de la Loire-Atlantique, de Maine-et-Loire et du Rhône" = 23950,
+    "de la Sardaigne" = 24000,
+    "de la Guadeloupe, de la Martinique, de La Réunion, de Mayotte et de la Nouvelle-Calédonie" = 24217,
+    "de la Sicile" = 25700,
+    "de la Vendée, de la Loire-Atlantique, de Maine-et-Loire et de la Mayenne" = 25876,
+    "du Rwanda" = 26300,
+    "de la Bretagne" = 27724,
+    "de la Normandie" = 29906,
+    "de 10 fois le parc national du Yosemite aux USA" = 30000,
+    "de la Belgique" = 30689,
+    "de Provence-Alpes-Côte-d'Azur" = 31400,
+    "des Hauts-de-France" = 31806,
+    "du Pays de la Loire" = 32082,
+    "de Taïwan" = 36197,
+    "du Pays de la Loire et des Alpes-Maritimes" = 36380,
+    "du Centre-Val de Loire" = 38151,
+    "du Bhoutan" = 38300,
+    "des Pays-Bas" = 38300,
+    "du Pays de la Loire et de la Somme" = 38352,
+    "de la Suisse" = 41200,
+    "du Centre-Val de Loire et du Tarn-et-Garonne" = 41800,
+    "du Parc National du Wood Buffalo (Canada)" = 44700,
+    "de 1/10 de la France métropolitaine" = 54400,
+    "du Sri Lanka" = 65000,
+    "de la Tasmanie" = 68000,
+    "de l'Islande" = 103000,
+    "de Cuba" = 109000
+  )
+  
+  # Find the closest equivalence
+  closest_equivalence <- names(equivalences)[which.min(abs(equivalences - total_surface))]
+  
+  # Create equivalence string
+  equivalence_text <-  paste("Soit l'équivalent de la surface", closest_equivalence)
   
   # Return the result as JSON
   list(
-    trawled_surface_km2 = total_surface
+    trawled_surface_km2 = total_surface,
+    equivalence = equivalence_text
   )
   
 }
