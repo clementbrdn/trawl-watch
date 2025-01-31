@@ -67,7 +67,7 @@ function() {
   surface_data <- calculate_surface(fishing_effort_clean, gear_widths)
   
   # Calculate the total trawled surface area
-  total_surface <- round(sum(surface_data$swept_area_km2), 2)
+  total_surface <- round(sum(surface_data$swept_area_km2), 0)
 
 
   # Define updated equivalences (areas in km²)
