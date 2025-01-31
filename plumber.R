@@ -72,18 +72,7 @@ function() {
 
   # Define updated equivalences (areas in km²)
   equivalences <- c(
-    "de Malte" = 316,
-    "d'Ibiza" = 571,
-    "de Tokyo" = 577,
-    "de Mumbai" = 603,
-    "de Djakarta" = 661,
-    "de Singapour" = 719,
-    "de Rio de Janeiro" = 1200,
-    "de Los Angeles" = 1299,
-    "de Johannesburg" = 1646,
-    "de La Réunion" = 2512,
     "du Parc naturel régional des Caps et Marais d'Opale" = 4300,
-    "de Maine-et-Loire et de Mayenne" = 5175,
     "de 10 fois le parc national des Calanques" = 5200,
     "du Lot" = 5217,
     "du Lot-et-Garonne" = 5361,
@@ -93,7 +82,9 @@ function() {
     "de Shanghai" = 6300,
     "du Morbihan" = 6800,
     "de 10 fois la ville de New York" = 7000,
-    "de Maine-et-Loire" = 7166,
+    "de Maine-et-Loire" = 7100,
+    "de 10 fois Singapour" = 7200,
+    "de 10 fois le parc national du Kilimandjaro" = 7500,
     "de Mayotte, La Réunion, Martinique et Guadeloupe" = 7800,
     "des Îles Galápagos" = 8000,
     "de la Corse" = 8680,
@@ -108,7 +99,6 @@ function() {
     "du Vanuatu" = 12100,
     "du Nord et des Pyrénées-Atlantiques" = 13300,
     "du Parc national du Serengeti" = 14700,
-    "du Parc National du Serengeti (Tanzanie)" = 14763,
     "de 50 fois la ville de Dunkerque" = 14995,
     "de 10 fois la ville de Londres" = 15000,
     "des Landes et des Pyrénées-Atlantiques" = 16888,
@@ -146,17 +136,86 @@ function() {
     "de l'Islande" = 103000,
     "de Cuba" = 109000
   )
+
+   # Define updated picto
+  equivalences_picto <- c(
+    "Parc National" = 4300,
+    "Parc National" = 5200,
+    "Département" = 5217,
+    "Département" = 5361,
+    "Département" = 5600,
+    "Région" = 5700,
+    "Région" = 6000,
+    "Ville" = 6300,
+    "Région" = 6800,
+    "Ville" = 7000,
+    "Département" = 7100,
+    "Pays" = 7200,
+    "Parc National" = 7500,
+    "Région" = 7800,
+    "Parc National" = 8000,
+    "Région" = 8680,
+    "Parc National" = 8900,
+    "Pays" = 9250,
+    "Département" = 10300,
+    "Pays" = 10400,
+    "Département" = 10500,
+    "Département" = 10700,
+    "Région" = 12000,
+    "Ville" = 12030,
+    "Pays" = 12100,
+    "Département" = 13300,
+    "Parc National" = 14700,
+    "Ville" = 14995,
+    "Ville" = 15000,
+    "Département" = 16888,
+    "Pays" = 18270,
+    "Département" = 19864,
+    "Région" = 20000,
+    "Département" = 20700,
+    "Pays" = 21041,
+    "Département" = 22500,
+    "Département" = 23950,
+    "Région" = 24000,
+    "Région" = 24217,
+    "Région" = 25700,
+    "Département" = 25876,
+    "Pays" = 26300,
+    "Région" = 27724,
+    "Région" = 29906,
+    "Parc National" = 30000,
+    "Pays" = 30689,
+    "Région" = 31400,
+    "Région" = 31806,
+    "Région" = 32082,
+    "Pays" = 36197,
+    "Région" = 36380,
+    "Région" = 38151,
+    "Pays" = 38300,
+    "Pays" = 38300,
+    "Région" = 38352,
+    "Pays" = 41200,
+    "Région" = 41800,
+    "Parc National" = 44700,
+    "Pays" = 54400,
+    "Pays" = 65000,
+    "Pays" = 68000,
+    "Pays" = 103000,
+    "Pays" = 109000
+  )
   
   # Find the closest equivalence
   closest_equivalence <- names(equivalences)[which.min(abs(equivalences - total_surface))]
   
   # Create equivalence string
   equivalence_text <-  paste("Soit l'équivalent de la surface", closest_equivalence)
+
   
   # Return the result as JSON
   list(
     trawled_surface_km2 = total_surface,
-    equivalence = equivalence_text
+    equivalence = equivalence_text,
+    pictograme = equivalences_picto
   )
   
 }
