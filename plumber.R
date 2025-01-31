@@ -210,12 +210,13 @@ function() {
   # Create equivalence string
   equivalence_text <-  paste("Soit l'équivalent de la surface", closest_equivalence)
 
+  picto <- names(equivalences_picto)[which.min(abs(equivalences - total_surface))]  
   
   # Return the result as JSON
   list(
     trawled_surface_km2 = total_surface,
     equivalence = equivalence_text,
-    pictograme = equivalences_picto
+    pictograme = picto
   )
   
 }
