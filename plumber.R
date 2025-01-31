@@ -210,6 +210,7 @@ function() {
   # Create equivalence string
   equivalence_text <-  paste("Soit l'équivalent de la surface", closest_equivalence)
 
+  # Find the picto corresponding to closest equivalence
   picto <- names(equivalences_picto)[which.min(abs(equivalences - total_surface))]  
   
   # Return the result as JSON
