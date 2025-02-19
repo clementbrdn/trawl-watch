@@ -1,0 +1,1 @@
+0 0 * * * Rscript /app.R >> /var/log/app.log 2>&1
