@@ -1,1 +1,1 @@
-0 0 * * * Rscript /app.R >> /var/log/app.log 2>&1
+0 8 * * * Rscript /app.R >> /var/log/app.log 2>&1
