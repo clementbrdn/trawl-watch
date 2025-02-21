@@ -44,8 +44,11 @@ COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 # Copy the API script into the container
 WORKDIR /app
 
-# Set up cron
-RUN chmod 0644 /etc/cron.d/app-cron && crontab /etc/cron.d/app-cron
+# Ensure proper permissions
+RUN chmod 0644 /etc/cron.d/app-cron
+
+# Install the cron job (ensure the user is specified)
+RUN crontab /etc/cron.d/app-cron
 
 # Expose API port
 EXPOSE 8080

@@ -14,6 +14,7 @@ download_GFW_data_path <- "/app/R/download_GFW_data.R"
 # Source the R scripts
 source(calculate_surface_path)
 source(download_GFW_data_path)
+Sys.setenv(GFW_TOKEN="eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImtpZEtleSJ9.eyJkYXRhIjp7Im5hbWUiOiJ0cmF3bF93YXRjaCIsInVzZXJJZCI6MTk3NTYsImFwcGxpY2F0aW9uTmFtZSI6InRyYXdsX3dhdGNoIiwiaWQiOjIxNzIsInR5cGUiOiJ1c2VyLWFwcGxpY2F0aW9uIn0sImlhdCI6MTczNjg3MTQ2OCwiZXhwIjoyMDUyMjMxNDY4LCJhdWQiOiJnZnciLCJpc3MiOiJnZncifQ.kcwlppP-MkoxG8l9wK-Gf5nVD4I3uMQ1JyoQ7x9b3V3iqVy0IpEGaZ4kqJlkgx2VrpEFjc5uuplRyH5GGJ69znElqucoXeOIxvXMOLtpuwlObwUYUNrzB7pCxgpfwbu79XL0xiGnPkGIFd7ti7MbJSeQxjpImf2J9QPrY1Wmr0wn2teqQlAiwehKPe1Se6itXM6PGtIIVYRk5gqiuSttet5_AO6naHYzWF8r1vYqJVsLXYo5Dksp3w8X9iy-uEKUEJtTXI40Nl379e1WQkYHU62HGWc393ruYSNg7PAs1LKbHG7zmCk0A3MXQdqWAi4UujbRiTmpQ1MCJqi7dppALgZNE76sqeP1PtCSBwnOh3jrAI79UGggVqZWJpIdpEIK_C4WMUAEfwa3KvZ8q2KsJg6ZnEeNKmJCNEP07hGAQgdItGKtP9j1fCZVw2l4OMhhcEhsNNT5YV5VFivUh-FHpfl5mM8aemLgd6PgEFdpkRsyI-WnMtnyE2i5ihbDwW_r")
 
 
   # Use dedicated GFW API key
@@ -207,11 +208,11 @@ source(download_GFW_data_path)
   picto <- names(equivalences_picto)[which.min(abs(equivalences - total_surface))]  
 
 data <- list(
-  closest_equivalence_f = closest_equivalence,
+  surface_f = total_surface,
   equivalence_text_f = equivalence_text,
   picto_f = picto
 )
 
 # Save output as JSON file
-write(toJSON(data, pretty = TRUE), "output/toplumb.json")
+write(toJSON(data, pretty = TRUE), "/app/output/toplumb.json")
   

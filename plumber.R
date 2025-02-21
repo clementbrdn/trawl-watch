@@ -9,7 +9,7 @@ library(jsonlite)
 #* Run the script and return the daily trawled surface
 #* @get /run
 function() {
-  file_path <- "output/toplumb.json"
+  file_path <- "/app/output/toplumb.json"
   
   if (!file.exists(file_path)) {
     return(list(error = "No data available yet"))
