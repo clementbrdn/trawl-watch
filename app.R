@@ -24,23 +24,19 @@ Sys.setenv(GFW_TOKEN="eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImtpZEtleSJ9.e
   
   # Load datasets directly from GitHub
   options(timeout = 300)  # Set timeout to 5 minutes
-  url <- "https://raw.githubusercontent.com/RaphSeguin/trawl_watch/main/output/France_MPA_dissolved.Rdata"
-  con <- url(url)
+  con <- "/app/output/France_MPA_dissolved.Rdata"
   load(con)
-  close(con)
   
-  url <- "https://raw.githubusercontent.com/RaphSeguin/trawl_watch/main/output/gear_widths.Rdata"
-  con <- url(url)
+  con <- "/app/output/gear_widths.Rdata"
   load(con)
-  close(con)
   
-  GFW_registry <- read.csv("https://raw.githubusercontent.com/RaphSeguin/trawl_watch/main/data/fishing-vessels-v2.csv") %>%
+  GFW_registry <- read.csv("/app/data/fishing-vessels-v2.csv") %>%
     dplyr::select(mmsi, vessel_class_gfw, flag_registry, flag_gfw, length_m_registry, length_m_gfw, length_m_inferred,
                   engine_power_kw_registry, engine_power_kw_gfw, engine_power_kw_inferred,
                   tonnage_gt_registry, tonnage_gt_inferred) %>%
     mutate(mmsi = as.factor(mmsi))
   
-  trawlers <- readRDS(url("https://raw.githubusercontent.com/RaphSeguin/trawl_watch/main/data/clean_fleet_register_20240618xl.rds")) %>%
+  trawlers <- readRDS("/app/data/clean_fleet_register_20240618xl.rds") %>%
     clean_names() %>%
     mutate(mmsi = as.factor(mmsi), main_gear_cat = as.factor(main_gear_cat)) %>%
     filter(main_gear_cat == "Bottom trawls & dredges") %>%
