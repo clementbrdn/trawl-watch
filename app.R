@@ -23,6 +23,7 @@ Sys.setenv(GFW_TOKEN="eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImtpZEtleSJ9.e
 
   
   # Load datasets directly from GitHub
+  options(timeout = 300)  # Set timeout to 5 minutes
   url <- "https://raw.githubusercontent.com/RaphSeguin/trawl_watch/main/output/France_MPA_dissolved.Rdata"
   con <- url(url)
   load(con)
