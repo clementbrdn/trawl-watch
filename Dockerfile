@@ -25,7 +25,7 @@ RUN apt-get update && apt-get install -y \
     cron  
 
 # Install packages
-RUN R -e "install.packages(c('plumber', 'devtools', 'systemfonts', 'ragg', 'textshaping', 'pkgdown'))"
+RUN R -e "install.packages(c('plumber', 'devtools', 'systemfonts', 'ragg', 'textshaping', 'pkgdown', 'R.utils'))"
 RUN R -e "install.packages('gfwr', repos = c('https://globalfishingwatch.r-universe.dev','https://cran.r-project.org'))"
 RUN R -e "install.packages('tidyverse')"
 RUN R -e "install.packages('janitor')"

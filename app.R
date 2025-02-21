@@ -6,6 +6,7 @@ library(tidyverse)
 library(sf)
 library(gfwr)
 library(janitor)
+library(R.utils)
 
 # Paths to the R scripts inside the container
 calculate_surface_path <- "/app/R/calculate_surface.R"
