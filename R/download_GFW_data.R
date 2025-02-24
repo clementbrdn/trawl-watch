@@ -18,7 +18,8 @@ Sys.setenv(GFW_TOKEN="eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImtpZEtleSJ9.e
   ),
   timeout = 900,  # Timeout in seconds
   onTimeout = "error"  # What to do if it times out
-)
+) %>%
+  httr2::req_timeout(300) 
 
   #Clean GFW fishing fishing_effort
   fishing_effort_clean <- fishing_effort %>%
