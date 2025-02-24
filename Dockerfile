@@ -31,6 +31,7 @@ RUN R -e "install.packages('tidyverse')"
 RUN R -e "install.packages('janitor')"
 RUN R -e "install.packages('jsonlite')"
 RUN R -e "install.packages('sf')"
+RUN R -e "install.packages('httr2')"
 
 # Create required directories
 RUN mkdir -p /var/log/supervisor

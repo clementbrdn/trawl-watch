@@ -5,7 +5,7 @@ Sys.setenv(GFW_TOKEN="eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImtpZEtleSJ9.e
  # Use dedicated GFW API key
   key <- gfw_auth()
   #Download fishing effort in French EEZ
- fishing_effort <- withTimeout(
+fishing_effort <- withTimeout(
   gfwr::get_raster(
     spatial_resolution = 'HIGH',
     temporal_resolution = 'DAILY',
@@ -16,10 +16,9 @@ Sys.setenv(GFW_TOKEN="eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImtpZEtleSJ9.e
     region_source = 'EEZ',
     key = key
   ),
-  timeout = 900,  # Timeout in seconds
+  timeout = 300,  # Timeout in seconds
   onTimeout = "error"  # What to do if it times out
-) %>%
-  httr2::req_timeout(300) 
+)
 
   #Clean GFW fishing fishing_effort
   fishing_effort_clean <- fishing_effort %>%
